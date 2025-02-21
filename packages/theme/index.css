@@ -1,1 +1,75 @@
 @import "./reset.css";
+
+:root {
+  /* colors */
+  --sp-color-white: #ffffff;
+  --sp-color-black: #000000;
+  --colors: (
+    primary: #409eff,
+    success: #67c23a,
+    warning: #e6a23c,
+    danger: #f56c6c,
+    info: #909399
+  );
+  --sp-bg-color: #ffffff;
+  --sp-bg-color-page: #f2f3f5;
+  --sp-bg-color-overlay: #ffffff;
+  --sp-text-color-primary: #303133;
+  --sp-text-color-regular: #606266;
+  --sp-text-color-secondary: #909399;
+  --sp-text-color-placeholder: #a8abb2;
+  --sp-text-color-disabled: #c0c4cc;
+  --sp-border-color: #dcdfe6;
+  --sp-border-color-light: #e4e7ed;
+  --sp-border-color-lighter: #ebeef5;
+  --sp-border-color-extra-light: #f2f6fc;
+  --sp-border-color-dark: #d4d7de;
+  --sp-border-color-darker: #cdd0d6;
+  --sp-fill-color: #f0f2f5;
+  --sp-fill-color-light: #f5f7fa;
+  --sp-fill-color-lighter: #fafafa;
+  --sp-fill-color-extra-light: #fafcff;
+  --sp-fill-color-dark: #ebedf0;
+  --sp-fill-color-darker: #e6e8eb;
+  --sp-fill-color-blank: #ffffff;
+
+  @each $val, $color in var(--colors) {
+    --sp-color-$(val): $(color);
+    @for $i from 3 to 9 {
+      --sp-color-$(val)-light-$(i): mix(#fff, $(color), 0$ (i));
+    }
+    --sp-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+  }
+
+  /* border */
+  --sp-border-width: 1px;
+  --sp-border-style: solid;
+  --sp-border-color-hover: var(--sp-text-color-disabled);
+  --sp-border: var(--sp-border-width) var(--sp-border-style)
+    var(--sp-border-color);
+  --sp-border-radius-base: 4px;
+  --sp-border-radius-small: 2px;
+  --sp-border-radius-round: 20px;
+  --sp-border-radius-circle: 100%;
+
+  /*font*/
+  --sp-font-size-extra-large: 20px;
+  --sp-font-size-large: 18px;
+  --sp-font-size-medium: 16px;
+  --sp-font-size-base: 14px;
+  --sp-font-size-small: 13px;
+  --sp-font-size-extra-small: 12px;
+  --sp-font-family: "Helvetica Neue", Helvetica, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", Arial,
+    sans-serif;
+  --sp-font-weight-primary: 500;
+
+  /*disabled*/
+  --sp-disabled-bg-color: var(--sp-fill-color-light);
+  --sp-disabled-text-color: var(--sp-text-color-placeholder);
+  --sp-disabled-border-color: var(--sp-border-color-light);
+
+  /*animation*/
+  --sp-transition-duration: 0.4s;
+  --sp-transition-duration-fast: 0.2s;
+}
