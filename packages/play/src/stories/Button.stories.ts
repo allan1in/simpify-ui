@@ -1,5 +1,5 @@
-import type { Meta, StoryObj, ArgTypes } from "@storybook/vue3";
-import { fn } from "@storybook/test";
+import type { Meta, StoryObj, ArgTypes, Args } from "@storybook/vue3";
+import { fn, userEvent, within, expect } from "@storybook/test";
 
 import { SpButton } from "simpify-ui";
 
@@ -67,6 +67,11 @@ export const Default: Story & { args: { content: string } } = {
     type: "primary",
     content: "Button",
   },
+  /*
+   *👇 Render functions are a framework specific feature to allow you control on how the component renders.
+   * See https://storybook.js.org/docs/api/csf
+   * to learn how to use render functions.
+   */
   render: (args: unknown) => ({
     components: { SpButton },
     setup() {
@@ -76,6 +81,22 @@ export const Default: Story & { args: { content: string } } = {
       `<sp-button v-bind="args">{{args.content}}</sp-button>`
     ),
   }),
+  // Test
+  play: async ({
+    canvasElement,
+    args,
+    step,
+  }: {
+    canvasElement: HTMLCanvasElement;
+    args: Args;
+    step: (description: string, fn: Function) => void;
+  }) => {
+    const canvas = within(canvasElement);
+    await step("click btn", async () => {
+      await userEvent.click(canvas.getByRole("button"));
+    });
+    expect(args.onClick).toHaveBeenCalled();
+  },
 };
 
 export default meta;
