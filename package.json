@@ -8,7 +8,7 @@
     "story": "pnpm --filter @simpify-ui/play storybook",
     "docs:dev": "pnpm --filter @simpify-ui/docs dev",
     "docs:build": "pnpm --filter @simpify-ui/docs build",
-    "test": "echo 'TODO'"
+    "test": "pnpm --filter @simpify-ui/components test"
   },
   "keywords": [],
   "author": "",
