@@ -22,22 +22,5 @@ const customStyles = computed(() => ({ color: props.color ?? void 0 }));
 </template>
 
 <style scoped>
-.sp-icon {
-    --sp-icon-color: inherit;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    fill: currentColor;
-    color: var(--sp-icon-color);
-    font-size: inherit;
-}
-
-@each $val in primary, info, success, warning, danger {
-    .sp-icon--$(val) {
-        --sp-icon-color: var(--sp-color-$(
-                val)
-        );
-}
-}
+@import "./style.css"
 </style>
