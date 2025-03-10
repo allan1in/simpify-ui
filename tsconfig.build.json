@@ -20,18 +20,15 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-
-    // https://www.npmjs.com/package/vite-plugin-dts?activeTab=readme#type-errors-that-are-unable-to-infer-types-from-packages-in-node_modules
-    "baseUrl": ".",
-    "paths": {
-      "vite": ["node_modules/vite"]
-    }
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "packages/**/*.ts",
-    "packages/**/*.tsx",
-    "packages/**/*.vue",
-    "tsconfig.build.json"
-  ]
+    "packages/core/index.ts",
+    "packages/hooks/**/*.ts",
+    "packages/utils/**/*.ts",
+    "packages/components/index.ts",
+    "packages/components/**/*.ts",
+    "packages/components/**/*.vue"
+  ],
+  "exclude": ["packages/components/vitest.config.ts"]
 }
