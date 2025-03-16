@@ -1,7 +1,7 @@
 {
   "name": "simpify-ui",
-  "version": "1.0.0",
-  "description": "Components Library",
+  "version": "0.0.1",
+  "description": "A Component Library for Vue 3",
   "type": "module",
   "main": "./dist/umd/index.umd.cjs",
   "module": "./dist/es/index.js",
@@ -32,7 +32,7 @@
     "clean": "rimraf dist"
   },
   "keywords": [],
-  "author": "",
+  "author": "allan1in",
   "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",

@@ -1,7 +1,6 @@
 {
   "name": "@simpify-ui/workspace",
-  "version": "0.0.1",
-  "description": "",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "dev": "pnpm run build && pnpm --filter @simpify-ui/play dev",
@@ -11,9 +10,6 @@
     "test": "pnpm --filter @simpify-ui/components test",
     "build": "pnpm --filter simpify-ui build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
