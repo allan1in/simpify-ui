@@ -30,14 +30,7 @@ export default defineConfig({
       formats: ["es"],
     },
     rollupOptions: {
-      external: [
-        "vue",
-        "@fortawesome/fontawesome-svg-core",
-        "@fortawesome/free-solid-svg-icons",
-        "@fortawesome/vue-fontawesome",
-        "@popperjs/core",
-        "async-validator",
-      ],
+      external: ["vue", "@popperjs/core", "async-validator"],
       output: {
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === "style.css") {

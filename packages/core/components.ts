@@ -1,4 +1,4 @@
-import { SpButton, SpIcon } from "@simpify-ui/components";
+import { SpButton } from "@simpify-ui/components";
 import type { Plugin } from "vue";
 
-export default [SpButton, SpIcon] as Plugin[];
+export default [SpButton] as Plugin[];

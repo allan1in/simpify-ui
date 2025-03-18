@@ -1,22 +1,23 @@
 import type { Component, Ref } from "Vue";
 
-export type ButtonType = "primary" | "success" | "warning" | "danger" | "info";
-export type NativeType = "button" | "reset" | "submit";
-export type ButtonSize = "large" | "default" | "small";
+export type ButtonSize =
+  | "extra-small"
+  | "small"
+  | "default"
+  | "large"
+  | "extra-large";
+
+export type ButtonType = "text";
 
 export interface ButtonProps {
   tag?: string | Component;
-  type?: ButtonType;
   size?: ButtonSize;
-  nativeType?: NativeType;
+  type?: ButtonType;
   disabled?: boolean;
   loading?: boolean;
-  icon?: string;
+  actived?: boolean;
   circle?: boolean;
-  plain?: boolean;
   round?: boolean;
-  loadingIcon?: string;
-  autofocus?: boolean;
   useThrottle?: boolean;
   throttleDuration?: number;
 }

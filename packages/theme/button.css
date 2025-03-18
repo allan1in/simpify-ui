@@ -1,0 +1,98 @@
+.sp-button {
+  --sp-button-bg-color: #343434;
+  --sp-button-font-color: #ffffff;
+  --sp-button-hover-bg-color: #404040;
+  --sp-button-active-bg-color: #505050;
+  --sp-button-actived-bg-color: #ffffff;
+  --sp-button-actived-font-color: #000000;
+  --sp-button-actived-hover-bg-color: #f0f0f0;
+  --sp-button-actived-active-bg-color: #c7c7c7;
+  --sp-button-disabled-font-color: #b3b3b3;
+}
+
+.sp-button {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: var(--sp-button-bg-color);
+  color: var(--sp-button-font-color);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  user-select: none;
+  transition-property: color, background-color;
+  transition-timing-function: ease;
+  transition-duration: var(--sp-transition-duration-default);
+
+  &:hover {
+    background-color: var(--sp-button-hover-bg-color);
+  }
+
+  &:active {
+    background-color: var(--sp-button-active-bg-color);
+  }
+
+  &.is-round {
+    border-radius: 99999px;
+  }
+
+  &.is-circle {
+    border-radius: 99999px;
+    width: var(--sp-button-size);
+  }
+
+  &.is-disabled {
+    color: var(--sp-button-disabled-font-color);
+    cursor: not-allowed;
+  }
+
+  &.is-loading {
+  }
+
+  &.is-actived {
+    background-color: var(--sp-button-actived-bg-color);
+    color: var(--sp-button-actived-font-color);
+
+    &:hover {
+      background-color: var(--sp-button-actived-hover-bg-color);
+    }
+
+    &:active {
+      background-color: var(--sp-button-actived-active-bg-color);
+    }
+  }
+}
+
+/* size */
+.sp-button--extra-small {
+  --sp-button-size: 24px;
+  height: var(--sp-button-size);
+}
+
+.sp-button--small {
+  --sp-button-size: 32px;
+  height: var(--sp-button-size);
+}
+
+.sp-button--default {
+  --sp-button-size: 40px;
+  height: var(--sp-button-size);
+}
+
+.sp-button--large {
+  --sp-button-size: 48px;
+  height: var(--sp-button-size);
+}
+
+.sp-button--extra-large {
+  --sp-button-size: 56px;
+  height: var(--sp-button-size);
+}
+
+/* type */
+.sp-button--text {
+  padding: 0 calc(var(--sp-button-size) / 8 * 3);
+  font-size: calc(var(--sp-button-size) / 16 * 7);
+}

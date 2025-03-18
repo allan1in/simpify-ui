@@ -3,16 +3,14 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm run build && pnpm --filter @simpify-ui/play dev",
+    "dev": "pnpm --filter @simpify-ui/play dev",
     "test": "pnpm --filter @simpify-ui/components test",
+    "preview": "pnpm run build && pnpm --filter @simpify-ui/play dev",
     "build": "pnpm --filter simpify-ui build",
     "docs:dev": "pnpm --filter @simpify-ui/docs dev",
     "docs:build": "pnpm --filter @simpify-ui/docs build"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.5.1",
-    "@fortawesome/free-solid-svg-icons": "^6.5.1",
-    "@fortawesome/vue-fontawesome": "^3.0.6",
     "@popperjs/core": "^2.11.8",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.11.20",
