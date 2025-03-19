@@ -1,5 +1,3 @@
-import type { Component, Ref } from "Vue";
-
 export type ButtonSize =
   | "extra-small"
   | "small"
@@ -7,17 +5,16 @@ export type ButtonSize =
   | "large"
   | "extra-large";
 
-export type ButtonType = "text";
+export type ButtonType = "contained" | "outlined" | "icon";
+
+export type ButtonShape = "rectangle" | "round" | "circle";
 
 export interface ButtonProps {
-  tag?: string | Component;
   size?: ButtonSize;
   type?: ButtonType;
-  disabled?: boolean;
+  shape?: ButtonShape;
   loading?: boolean;
-  actived?: boolean;
-  circle?: boolean;
-  round?: boolean;
+  disabled?: boolean;
   useThrottle?: boolean;
   throttleDuration?: number;
 }
@@ -25,8 +22,4 @@ export interface ButtonProps {
 // https://cn.vuejs.org/api/sfc-script-setup.html#type-only-props-emit-declarations
 export interface ButtonEmits {
   (e: "click", val: MouseEvent): void;
-}
-
-export interface ButtonInstance {
-  ref: Ref<HTMLButtonElement | void>;
 }

@@ -1,16 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-let actived = ref(false)
+let lighted = ref(false)
 
 const click = () => {
   console.log("click")
-  actived.value = !actived.value
+  lighted.value = !lighted.value
 }
 </script>
 
 <template>
-  <sp-button type="text" round :disabled="false" @click="click" :actived>test</sp-button>
+  <sp-button @click="click" type="outlined" shape="circle">
+    1
+  </sp-button>
 </template>
 
 <style scoped></style>
