@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "SimpifyUI"
-  text: "Spotify 风格组件库"
+  text: "Vue3 + Ts 组件库"
   tagline: My great project tagline
   actions:
     - theme: brand
@@ -22,4 +22,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-

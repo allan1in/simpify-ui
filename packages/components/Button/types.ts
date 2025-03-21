@@ -1,3 +1,5 @@
+import type { Component } from "vue";
+
 export type ButtonSize =
   | "extra-small"
   | "small"
@@ -5,16 +7,22 @@ export type ButtonSize =
   | "large"
   | "extra-large";
 
-export type ButtonType = "contained" | "outlined" | "icon";
+export type ButtonType = "contained" | "outlined" | "text";
 
 export type ButtonShape = "rectangle" | "round" | "circle";
+
+export type ButtonInteraction = "scale";
 
 export interface ButtonProps {
   size?: ButtonSize;
   type?: ButtonType;
   shape?: ButtonShape;
+  interaction?: ButtonInteraction;
+  actived?: boolean;
   loading?: boolean;
   disabled?: boolean;
+  startIcon?: Component;
+  endIcon?: Component;
   useThrottle?: boolean;
   throttleDuration?: number;
 }

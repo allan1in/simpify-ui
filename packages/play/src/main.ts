@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import "./base.css";
+import "./styles/index.css";
 // preview
 // import SimpifyUI from "simpify-ui";
 // import "simpify-ui/dist/index.css";

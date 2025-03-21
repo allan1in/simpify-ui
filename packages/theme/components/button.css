@@ -1,0 +1,221 @@
+.sp-button {
+  height: var(--sp-button-size);
+  font-size: var(--sp-button-font-size);
+  font-family: inherit;
+  vertical-align: middle;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  user-select: none;
+  transition-property: color, background-color, border;
+  transition-timing-function: ease;
+  transition-duration: var(--sp-transition-duration-default);
+
+  &.is-loading {
+    cursor: wait;
+
+    @keyframes loadingFade {
+      0% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+    color: #b3b3b3;
+  }
+}
+
+.sp-button-icon {
+  display: inline-block;
+  height: calc(var(--sp-button-font-size) * 0.8);
+  fill: var(--sp-button-font-color);
+  vertical-align: middle;
+  transition-property: fill;
+  transition-timing-function: ease;
+  transition-duration: var(--sp-transition-duration-default);
+}
+
+.sp-button-icon--start {
+  margin-right: calc(var(--sp-button-font-size) / 2);
+}
+
+.sp-button-icon--end {
+  margin-left: calc(var(--sp-button-font-size) / 2);
+}
+
+/* size */
+.sp-button--extra-small {
+  --sp-button-size: 24px;
+  --sp-button-border-width: 1px;
+}
+
+.sp-button--small {
+  --sp-button-size: 32px;
+  --sp-button-border-width: 1px;
+}
+
+.sp-button--default {
+  --sp-button-size: 40px;
+  --sp-button-border-width: 1px;
+}
+
+.sp-button--large {
+  --sp-button-size: 48px;
+  --sp-button-border-width: 2px;
+}
+
+.sp-button--extra-large {
+  --sp-button-size: 56px;
+  --sp-button-border-width: 2px;
+}
+
+/* shape */
+.sp-button--rectangle {
+  border-radius: calc(var(--sp-button-size) / 16);
+}
+
+.sp-button--round {
+  border-radius: 99999px;
+}
+
+.sp-button--circle {
+  border-radius: 99999px;
+  width: var(--sp-button-size);
+}
+
+/* interaction */
+.sp-button--scale:not(.is-loading, .is-disabled) {
+  &:hover {
+    transform: scale(1.04);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}
+
+/* type */
+.sp-button--contained {
+  background-color: #343434;
+  color: #ffffff;
+  font-size: calc(var(--sp-button-size) / 16 * 7);
+  padding: 0 calc(var(--sp-button-size) / 8 * 3);
+  border: none;
+
+  &:hover:not(.is-disabled, .is-loading) {
+    background-color: #404040;
+  }
+
+  &:active:not(.is-disabled, .is-loading) {
+    background-color: #505050;
+  }
+
+  &.is-loading {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      animation: loadingFade 0.8s infinite alternate ease-in-out;
+    }
+  }
+}
+
+.sp-button--contained.is-actived {
+  color: #000000;
+  background-color: #fff;
+
+  &:hover:not(.is-disabled, .is-loading) {
+    background-color: #f0f0f0;
+  }
+
+  &:active:not(.is-disabled, .is-loading) {
+    background-color: #c7c7c7;
+  }
+}
+
+.sp-button--outlined {
+  background-color: transparent;
+  color: #ffffff;
+  padding: 0 calc(var(--sp-button-size) / 2);
+  border: 1px solid #7c7c7c;
+
+  &:hover:not(.is-disabled, .is-loading) {
+    border-color: #ffffff;
+  }
+
+  &:active:not(.is-disabled, .is-loading) {
+    color: #7c7c7c;
+    border-color: #7c7c7c;
+  }
+
+  &.is-loading {
+    animation: loadingFade 0.8s infinite alternate ease-in-out;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.sp-button--outlined.is-actived {
+  color: #000000;
+  background-color: #fff;
+  border: none;
+
+  &:hover:not(.is-disabled, .is-loading) {
+    background-color: #f0f0f0;
+  }
+
+  &:active:not(.is-disabled, .is-loading) {
+    background-color: #c7c7c7;
+  }
+}
+
+.sp-button--text {
+  border: none;
+  background-color: transparent;
+  color: #b3b3b3;
+  padding: 0 calc(var(--sp-button-size) / 2);
+
+  &:hover:not(.is-disabled, .is-loading) {
+    color: #ffffff;
+  }
+
+  &:active:not(.is-disabled, .is-loading) {
+    color: #b3b3b3;
+  }
+
+  &.is-loading {
+    animation: loadingFade 0.8s infinite alternate ease-in-out;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.sp-button--text.is-actived {
+  color: #ffffff;
+
+  &:hover:not(.is-disabled, .is-loading) {
+    color: #f0f0f0;
+  }
+
+  &:active:not(.is-disabled, .is-loading) {
+    color: #c7c7c7;
+  }
+}
