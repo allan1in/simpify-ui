@@ -35,7 +35,7 @@
 
 .sp-button-icon {
   display: inline-block;
-  height: calc(var(--sp-button-font-size) * 0.8);
+  height: calc(var(--sp-button-font-size) * 1);
   fill: var(--sp-button-font-color);
   vertical-align: middle;
   transition-property: fill;
@@ -129,7 +129,7 @@
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.4);
-      animation: loadingFade 0.8s infinite alternate ease-in-out;
+      animation: loadingFade 1s infinite alternate ease-in-out;
     }
   }
 }
@@ -163,7 +163,7 @@
   }
 
   &.is-loading {
-    animation: loadingFade 0.8s infinite alternate ease-in-out;
+    animation: loadingFade 1s infinite alternate ease-in-out;
 
     &::before {
       display: none;
@@ -200,7 +200,7 @@
   }
 
   &.is-loading {
-    animation: loadingFade 0.8s infinite alternate ease-in-out;
+    animation: loadingFade 1s infinite alternate ease-in-out;
 
     &::before {
       display: none;

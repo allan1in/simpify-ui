@@ -17,15 +17,14 @@ const click = (index: number) => {
 
 <template>
   <div class="wrapper">
-    <sp-button @click="click(0)" :actived="actived[0]" :loading="loading[0]" type="outlined" shape="round"
-      interaction="scale">
-      Follow
+    <sp-button @click="click(0)" :actived="actived[0]" :loading="loading[0]" type="outlined">
+      Outlined
     </sp-button>
-    <sp-button @click="click(1)" :actived="actived[1]" :loading="loading[1]" type="contained" shape="round"
-      :startIcon="IconPlay">
+    <sp-button @click="click(1)" :actived="actived[1]" :loading="loading[1]" type="contained" :startIcon="IconPlay"
+      shape="round">
       Play
     </sp-button>
-    <sp-button @click="click(2)" :actived="actived[2]" :loading="loading[2]" type="text" interaction="scale">
+    <sp-button @click="click(2)" :actived="actived[2]" :loading="loading[2]" type="text">
       Install App
     </sp-button>
   </div>
