@@ -1,0 +1,65 @@
+.sp-icon-button {
+  height: var(--sp-icon-button-size);
+  width: var(--sp-icon-button-size);
+  border: none;
+  border-radius: 50%;
+  font-size: var(--sp-icon-button-font-size);
+  font-family: inherit;
+  vertical-align: middle;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  user-select: none;
+  transition-property: color, background-color, border;
+  transition-timing-function: ease;
+  transition-duration: var(--sp-transition-duration-default);
+}
+
+.sp-icon-button-icon {
+  display: inline-block;
+  height: calc(var(--sp-icon-button-size) * 0.5);
+  fill: #000000;
+  transition-property: fill;
+  transition-timing-function: ease;
+  transition-duration: var(--sp-transition-duration-default);
+}
+
+/* size */
+.sp-icon-button--extra-small {
+  --sp-icon-button-size: 24px;
+  --sp-icon-button-border-width: 1px;
+}
+
+.sp-icon-button--small {
+  --sp-icon-button-size: 32px;
+  --sp-icon-button-border-width: 1px;
+}
+
+.sp-icon-button--default {
+  --sp-icon-button-size: 40px;
+  --sp-icon-button-border-width: 1px;
+}
+
+.sp-icon-button--large {
+  --sp-icon-button-size: 48px;
+  --sp-icon-button-border-width: 2px;
+}
+
+.sp-icon-button--extra-large {
+  --sp-icon-button-size: 56px;
+  --sp-icon-button-border-width: 2px;
+}
+
+/* interaction */
+.sp-icon-button--scale:not(.is-loading, .is-disabled) {
+  &:hover {
+    transform: scale(1.04);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}

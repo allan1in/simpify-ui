@@ -1,7 +1,50 @@
 .sp-button {
+  --sp-button-disabled-color: #b3b3b3;
+  --sp-button-border-radius: calc(var(--sp-button-size) / 16);
+  --sp-button-loading-mask-color: rgba(0, 0, 0, 0.4);
+  --sp-button-loading-animation-duration: 1s;
+  --sp-button-loading-timing-function: ease-in-out;
+  --sp-button-transition-duration: var(--sp-transition-duration-default);
+  --sp-button-transition-timing-function: ease;
+
+  --sp-button-icon-size: calc(var(--sp-button-size) * 0.4);
+  --sp-button-icon-margin: calc(var(--sp-button-size) / 4);
+
+  --sp-button-contained-bg-color: #343434;
+  --sp-button-contained-color: #ffffff;
+  --sp-button-contained-hover-color: #404040;
+  --sp-button-contained-active-color: #505050;
+  --sp-button-contained-padding-x: calc(var(--sp-button-size) / 8 * 3);
+  --sp-button-contained-actived-bg-color: #ffffff;
+  --sp-button-contained-actived-color: #000000;
+  --sp-button-contained-actived-hover-color: #f0f0f0;
+  --sp-button-contained-actived-active-color: #c7c7c7;
+
+  --sp-button-outlined-bg-color: transparent;
+  --sp-button-outlined-color: #ffffff;
+  --sp-button-outlined-border-color: #7c7c7c;
+  --sp-button-outlined-hover-color: #ffffff;
+  --sp-button-outlined-active-color: #7c7c7c;
+  --sp-button-outlined-padding-x: calc(var(--sp-button-size) / 2);
+  --sp-button-outlined-actived-bg-color: #ffffff;
+  --sp-button-outlined-actived-color: #000000;
+  --sp-button-outlined-actived-hover-color: #f0f0f0;
+  --sp-button-outlined-actived-active-color: #c7c7c7;
+
+  --sp-button-text-bg-color: transparent;
+  --sp-button-text-color: #b3b3b3;
+  --sp-button-text-hover-color: #ffffff;
+  --sp-button-text-active-color: #b3b3b3;
+  --sp-button-text-padding-x: calc(var(--sp-button-size) / 2);
+  --sp-button-text-actived-color: #ffffff;
+  --sp-button-text-actived-hover-color: #f0f0f0;
+  --sp-button-text-actived-active-color: #c7c7c7;
+}
+
+.sp-button {
   height: var(--sp-button-size);
-  font-size: var(--sp-button-font-size);
   font-family: inherit;
+  font-size: calc(var(--sp-button-size) / 16 * 7);
   vertical-align: middle;
   cursor: pointer;
   display: flex;
@@ -11,8 +54,8 @@
   box-sizing: border-box;
   user-select: none;
   transition-property: color, background-color, border;
-  transition-timing-function: ease;
-  transition-duration: var(--sp-transition-duration-default);
+  transition-timing-function: var(--sp-button-transition-timing-function);
+  transition-duration: var(--sp-button-transition-duration);
 
   &.is-loading {
     cursor: wait;
@@ -29,26 +72,25 @@
 
   &.is-disabled {
     cursor: not-allowed;
-    color: #b3b3b3;
+    color: var(--sp-button-disabled-color);
   }
 }
 
 .sp-button-icon {
   display: inline-block;
-  height: calc(var(--sp-button-font-size) * 0.8);
-  fill: var(--sp-button-font-color);
+  height: var(--sp-button-icon-size);
   vertical-align: middle;
   transition-property: fill;
-  transition-timing-function: ease;
-  transition-duration: var(--sp-transition-duration-default);
+  transition-timing-function: var(--sp-button-transition-timing-function);
+  transition-duration: var(--sp-button-transition-duration);
 }
 
 .sp-button-icon--start {
-  margin-right: calc(var(--sp-button-font-size) / 2);
+  margin-right: var(--sp-button-icon-margin);
 }
 
 .sp-button-icon--end {
-  margin-left: calc(var(--sp-button-font-size) / 2);
+  margin-left: var(--sp-button-icon-margin);
 }
 
 /* size */
@@ -79,7 +121,7 @@
 
 /* shape */
 .sp-button--rectangle {
-  border-radius: calc(var(--sp-button-size) / 16);
+  border-radius: var(--sp-button-border-radius);
 }
 
 .sp-button--round {
@@ -104,18 +146,18 @@
 
 /* type */
 .sp-button--contained {
-  background-color: #343434;
-  color: #ffffff;
-  font-size: calc(var(--sp-button-size) / 16 * 7);
-  padding: 0 calc(var(--sp-button-size) / 8 * 3);
+  background-color: var(--sp-button-contained-bg-color);
+  color: var(--sp-button-contained-color);
+  fill: var(--sp-button-contained-color);
+  padding: 0 var(--sp-button-contained-padding-x);
   border: none;
 
   &:hover:not(.is-disabled, .is-loading) {
-    background-color: #404040;
+    background-color: var(--sp-button-contained-hover-color);
   }
 
   &:active:not(.is-disabled, .is-loading) {
-    background-color: #505050;
+    background-color: var(--sp-button-contained-active-color);
   }
 
   &.is-loading {
@@ -128,42 +170,48 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
-      animation: loadingFade 0.8s infinite alternate ease-in-out;
+      background-color: var(--sp-button-loading-mask-color);
+      animation: loadingFade var(--sp-button-loading-animation-duration)
+        infinite alternate var(--sp-button-loading-timing-function);
     }
   }
 }
 
 .sp-button--contained.is-actived {
-  color: #000000;
-  background-color: #fff;
+  color: var(--sp-button-contained-actived-color);
+  fill: var(--sp-button-contained-actived-color);
+  background-color: var(--sp-button-contained-actived-bg-color);
 
   &:hover:not(.is-disabled, .is-loading) {
-    background-color: #f0f0f0;
+    background-color: var(--sp-button-contained-actived-hover-color);
   }
 
   &:active:not(.is-disabled, .is-loading) {
-    background-color: #c7c7c7;
+    background-color: var(--sp-button-contained-actived-active-color);
   }
 }
 
 .sp-button--outlined {
-  background-color: transparent;
-  color: #ffffff;
-  padding: 0 calc(var(--sp-button-size) / 2);
-  border: 1px solid #7c7c7c;
+  background-color: var(--sp-button-outlined-bg-color);
+  color: var(--sp-button-outlined-color);
+  fill: var(--sp-button-outlined-color);
+  padding: 0 var(--sp-button-outlined-padding-x);
+  border: var(--sp-button-border-width) solid
+    var(--sp-button-outlined-border-color);
 
   &:hover:not(.is-disabled, .is-loading) {
-    border-color: #ffffff;
+    border-color: var(--sp-button-outlined-hover-color);
   }
 
   &:active:not(.is-disabled, .is-loading) {
-    color: #7c7c7c;
-    border-color: #7c7c7c;
+    color: var(--sp-button-outlined-active-color);
+    fill: var(--sp-button-outlined-active-color);
+    border-color: var(--sp-button-outlined-active-color);
   }
 
   &.is-loading {
-    animation: loadingFade 0.8s infinite alternate ease-in-out;
+    animation: loadingFade var(--sp-button-loading-animation-duration) infinite
+      alternate var(--sp-button-loading-timing-function);
 
     &::before {
       display: none;
@@ -172,35 +220,40 @@
 }
 
 .sp-button--outlined.is-actived {
-  color: #000000;
-  background-color: #fff;
+  color: var(--sp-button-outlined-actived-color);
+  fill: var(--sp-button-outlined-actived-color);
+  background-color: var(--sp-button-outlined-actived-bg-color);
   border: none;
 
   &:hover:not(.is-disabled, .is-loading) {
-    background-color: #f0f0f0;
+    background-color: var(--sp-button-outlined-actived-hover-color);
   }
 
   &:active:not(.is-disabled, .is-loading) {
-    background-color: #c7c7c7;
+    background-color: var(--sp-button-outlined-actived-active-color);
   }
 }
 
 .sp-button--text {
   border: none;
-  background-color: transparent;
-  color: #b3b3b3;
-  padding: 0 calc(var(--sp-button-size) / 2);
+  background-color: var(--sp-button-text-bg-color);
+  color: var(--sp-button-text-color);
+  fill: var(--sp-button-text-color);
+  padding: 0 var(--sp-button-text-padding-x);
 
   &:hover:not(.is-disabled, .is-loading) {
-    color: #ffffff;
+    color: var(--sp-button-text-hover-color);
+    fill: var(--sp-button-text-hover-color);
   }
 
   &:active:not(.is-disabled, .is-loading) {
-    color: #b3b3b3;
+    color: var(--sp-button-text-active-color);
+    fill: var(--sp-button-text-active-color);
   }
 
   &.is-loading {
-    animation: loadingFade 0.8s infinite alternate ease-in-out;
+    animation: loadingFade var(--sp-button-loading-animation-duration) infinite
+      alternate var(--sp-button-loading-timing-function);
 
     &::before {
       display: none;
@@ -209,13 +262,16 @@
 }
 
 .sp-button--text.is-actived {
-  color: #ffffff;
+  color: var(--sp-button-text-active-color);
+  fill: var(--sp-button-text-active-color);
 
   &:hover:not(.is-disabled, .is-loading) {
-    color: #f0f0f0;
+    color: var(--sp-button-text-actived-hover-color);
+    fill: var(--sp-button-text-actived-hover-color);
   }
 
   &:active:not(.is-disabled, .is-loading) {
-    color: #c7c7c7;
+    color: var(--sp-button-text-actived-active-color);
+    fill: var(--sp-button-text-actived-active-color);
   }
 }

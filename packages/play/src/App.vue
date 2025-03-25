@@ -13,29 +13,54 @@ const click = (index: number) => {
     actived.value[index] = !actived.value[index]
   }, 1500)
 }
+
+let isLight = ref(false)
+const changeMode = () => {
+  isLight.value = !isLight.value
+}
 </script>
 
 <template>
-  <div class="wrapper">
-    <sp-button @click="click(0)" :actived="actived[0]" :loading="loading[0]" type="outlined" shape="round"
-      interaction="scale">
-      Follow
+  <div class="wrapper" :class="{ 'dark': !isLight, 'light': isLight }">
+    <sp-button :actived="!isLight" class="change-mode-btn" @click="changeMode">{{ `${isLight ? "Dark" : "Light"} Mode`
+    }}</sp-button>
+    <sp-button @click="click(0)" :actived="actived[0]" :loading="loading[0]" type="outlined" :startIcon="IconPlay">
+      Outlined
     </sp-button>
-    <sp-button @click="click(1)" :actived="actived[1]" :loading="loading[1]" type="contained" shape="round"
-      :startIcon="IconPlay">
+    <sp-button @click="click(1)" :actived="actived[1]" :loading="loading[1]" type="contained" :startIcon="IconPlay"
+      shape="round">
       Play
     </sp-button>
-    <sp-button @click="click(2)" :actived="actived[2]" :loading="loading[2]" type="text" interaction="scale">
+    <sp-button @click="click(2)" :actived="actived[2]" :loading="loading[2]" type="text" :startIcon="IconPlay">
       Install App
     </sp-button>
+    <sp-icon-button interaction="scale" size="small" :icon="IconPlay"></sp-icon-button>
   </div>
 </template>
 
 <style scoped>
 .wrapper {
+  min-width: 100vw;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 10px;
+  position: relative;
+  transition: background-color 0.2s ease;
+
+  &.dark {
+    background-color: #121212;
+  }
+
+  &.light {
+    background-color: #eeeeee;
+  }
+
+  & .change-mode-btn {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
 }
 </style>

@@ -8,13 +8,13 @@ import "./styles/index.css";
 // dev
 import { makeInstaller } from "@simpify-ui/utils";
 import "@simpify-ui/theme/index.css";
-import { SpButton } from "@simpify-ui/components";
+import { SpButton, SpIconButton } from "@simpify-ui/components";
 
 // preview
 // https://cn.vuejs.org/api/application.html#app-use
 // createApp(App).use(SimpifyUI).mount("#app");
 
 // dev
-const components = [SpButton];
+const components = [SpButton, SpIconButton];
 const installer = makeInstaller(components);
 createApp(App).use(installer).mount("#app");
