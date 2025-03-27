@@ -1,6 +1,7 @@
 .sp-button {
   --sp-button-disabled-color: #b3b3b3;
   --sp-button-border-radius: calc(var(--sp-button-size) / 16);
+  --sp-button-hover-scale-factor: 1.04;
   --sp-button-loading-mask-color: rgba(0, 0, 0, 0.4);
   --sp-button-loading-animation-duration: 1s;
   --sp-button-loading-timing-function: ease-in-out;
@@ -21,7 +22,7 @@
   --sp-button-contained-actived-active-color: #c7c7c7;
 
   --sp-button-outlined-bg-color: transparent;
-  --sp-button-outlined-color: #ffffff;
+  --sp-button-outlined-color: #7c7c7c;
   --sp-button-outlined-border-color: #7c7c7c;
   --sp-button-outlined-hover-color: #ffffff;
   --sp-button-outlined-active-color: #7c7c7c;
@@ -136,7 +137,7 @@
 /* interaction */
 .sp-button--scale:not(.is-loading, .is-disabled) {
   &:hover {
-    transform: scale(1.04);
+    transform: scale(var(--sp-button-hover-scale-factor));
   }
 
   &:active {
@@ -262,8 +263,8 @@
 }
 
 .sp-button--text.is-actived {
-  color: var(--sp-button-text-active-color);
-  fill: var(--sp-button-text-active-color);
+  color: var(--sp-button-text-actived-color);
+  fill: var(--sp-button-text-actived-color);
 
   &:hover:not(.is-disabled, .is-loading) {
     color: var(--sp-button-text-actived-hover-color);

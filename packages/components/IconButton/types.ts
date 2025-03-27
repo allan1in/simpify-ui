@@ -7,9 +7,9 @@ export type IconButtonSize =
   | "large"
   | "extra-large";
 
-export type IconButtonInteraction = "scale";
+export type IconButtonInteraction = "scale" | "shadow";
 
-export type IconButtonType = "";
+export type IconButtonType = "contained" | "plain";
 
 export interface IconButtonProps {
   size?: IconButtonSize;
